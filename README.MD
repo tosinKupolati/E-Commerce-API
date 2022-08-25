@@ -1,7 +1,7 @@
 # Project Name
 
 > E-Commerce API
-> Live demo [_here_](#e-commerce-api-p1#).
+> Live demo [_here_](https://e-commerce-api-p1.herokuapp.com/).
 
 ## Table of Contents
 
