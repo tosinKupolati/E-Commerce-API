@@ -1,4 +1,4 @@
-# Project Name
+# E-CommerceAPI-p1
 
 > E-Commerce API
 > Live demo [_here_](https://e-commerce-api-p1.herokuapp.com/).
@@ -13,7 +13,7 @@
 ## Features
 
 - Users can register and login to their accounts.
-- Only Admin can add products.
+- Only Admin can add products, update products and delete products.
 - Public (Unauthenticated users) can access all products and all reviews for a particular product
 - Authenticated users can create a review, edit their created review, delete their review and create an order.
 
