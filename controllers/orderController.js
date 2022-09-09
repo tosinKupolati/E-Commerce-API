@@ -1,17 +1,13 @@
 const Order = require('../models/Order');
 const Product = require('../models/Product');
 
+const stripe = require('stripe')(process.env.STRIPE_KEY);
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
 const { checkPermissions } = require('../utils');
 
-const fakeStripeAPI = async ({ amount, currency }) => {
-  const client_secret = 'someRandomValue';
-  return { client_secret, amount, currency };
-};
-
 const createOrder = async (req, res) => {
-  const { items: cartItems, tax, shippingFee } = req.body;
+  const { cartItems, tax, shippingFee } = req.body;
   if (!cartItems || cartItems.length < 1) {
     throw new CustomError.BadRequestError('No cart items provided');
   }
@@ -43,10 +39,12 @@ const createOrder = async (req, res) => {
   //calculate total
   const total = tax + shippingFee + subtotal;
   //get client secret
-  const paymentIntent = await fakeStripeAPI({
+
+  const paymentIntent = await stripe.paymentIntents.create({
     amount: total,
     currency: 'usd',
   });
+
   const order = await Order.create({
     tax,
     shippingFee,
