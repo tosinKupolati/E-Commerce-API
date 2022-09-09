@@ -10,8 +10,69 @@ const createProduct = async (req, res) => {
 };
 
 const getAllProducts = async (req, res) => {
-  const products = await Product.find({});
+  const {
+    name,
+    category,
+    company,
+    freeShipping,
+    sort,
+    select,
+    numericFilters,
+  } = req.query;
+  let queryObject = {};
+  if (name) {
+    queryObject.name = name;
+  }
+  if (category) {
+    queryObject.category = category;
+  }
+  if (company) {
+    queryObject.company = company;
+  }
+  if (freeShipping) {
+    queryObject.freeShipping = freeShipping;
+  }
+  //numericFilters
+  if (numericFilters) {
+    const operatorMap = {
+      '>': '$gt',
+      '>=': '$gte',
+      '=': '$eq',
+      '&lt;': '$lt',
+      '&lt;=': '$lte',
+    };
+    const regEx = /\b(&lt;|>|=|&lt;=|>=)\b/g;
+    let filters = numericFilters.replace(
+      regEx,
+      (match) => `-${operatorMap[match]}-`
+    );
+    const options = ['price', 'averageRating', 'numOfReviews'];
+    filters.split(',').forEach((item) => {
+      const [field, operator, value] = item.split('-');
+      if (options.includes(field)) {
+        queryObject[field] = { [operator]: Number(value) };
+      }
+    });
+  }
+  let products = Product.find(queryObject);
 
+  //sort functionality
+  if (sort) {
+    sortList = sort.split(',').join(' ');
+    products = products.sort(sortList);
+  }
+  //select functionality
+  if (select) {
+    selectList = select.split(',').join(' ');
+    products = products.select(selectList);
+  }
+  //pagination
+  const page = req.query.page || 1;
+  const limit = req.query.limit || 10;
+  const skip = (page - 1) * limit;
+  products = products.skip(skip).limit(limit);
+
+  products = await products;
   res.status(StatusCodes.OK).json({ products, count: products.length });
 };
 
