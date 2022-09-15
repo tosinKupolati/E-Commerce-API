@@ -8408,6 +8408,9 @@
        <li><a class=endpoint_menu href=#jump-Auth-LogoutUser>Logout User</a>
        <li><a class=endpoint_menu href=#jump-Auth-RegisterUser>Register User</a>
        <li><a class=endpoint_menu href=#jump-Auth-LoginUser>Login User</a>
+       <li><a class=endpoint_menu href=#jump-Auth-VerifyEmail>Verify Email</a>
+       <li><a class=endpoint_menu href=#jump-Auth-ForgotPassword>Forgot Password</a>
+       <li><a class=endpoint_menu href=#jump-Auth-ResetPassword>Reset Password</a>
       </ul>
      <li><strong><a href=#User>User</a></strong>
       <ul>
@@ -8449,19 +8452,19 @@
     <div class="panel panel-default">
      <div class=panel-heading>
       <h3 class=panel-title id=Auth>Auth
-       <span class=badge>3</span>
+       <span class=badge>6</span>
       </h3>
      </div>
      <div class=panel-body>
       <p>
       <div class=request-item>
        <div class=panel-group id=accordion-Auth>
-        <div class="panel panel-info" id=jump-Auth-LogoutUser>
-         <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info data-toggle=collapse
+        <div class="panel panel-danger" id=jump-Auth-LogoutUser>
+         <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-danger data-toggle=collapse
            data-parent=#accordion-Auth href=#collapse-Auth-LogoutUser>
            <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Logout User</strong>
             &nbsp;|&nbsp;
-            <strong class="request-method border-info">GET</strong>
+            <strong class="request-method border-danger">DELETE</strong>
             &nbsp;
             https://e-commerce-api-p1.herokuapp.com/api/v1/auth/logout
            </h4>
@@ -8485,7 +8488,7 @@
           <div class=panel-body>
            <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
             &#34;name&#34;:&#34;tosin&#34;,
-            &#34;email&#34;:&#34;tosin46@gmail.com&#34;,
+            &#34;email&#34;:&#34;tosin3@gmail.com&#34;,
             &#34;password&#34;:&#34;learning&#34;
             }</span>
            <div class=clearfix></div>
@@ -8505,7 +8508,70 @@
          <div id=collapse-Auth-LoginUser class="panel-collapse collapse">
           <div class=panel-body>
            <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
-            &#34;email&#34;:&#34;tosin1@gmail.com&#34;,
+            &#34;email&#34;:&#34;tosin3@gmail.com&#34;,
+            &#34;password&#34;:&#34;learning&#34;
+            }</span>
+           <div class=clearfix></div>
+          </div>
+         </div>
+        </div>
+        <div class="panel panel-success" id=jump-Auth-VerifyEmail>
+         <div class=panel-heading><small class="pull-right text-muted">raw</small>
+          <a class=text-success data-toggle=collapse data-parent=#accordion-Auth href=#collapse-Auth-VerifyEmail>
+           <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Verify Email</strong>
+            &nbsp;|&nbsp;
+            <strong class="request-method border-success">POST</strong>
+            &nbsp;
+            https://e-commerce-api-p1.herokuapp.com/api/v1/auth/verify-email
+           </h4>
+          </a>
+         </div>
+         <div id=collapse-Auth-VerifyEmail class="panel-collapse collapse">
+          <div class=panel-body>
+           <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+            &#34;email&#34;:&#34;tosin3@gmail.com&#34;,
+            &#34;verificationToken&#34;:&#34;18833c88cb019ece8ee91718d743e250e69b1ea97af2966d7e366e983e61cc7c16372343436a4a13&#34;
+            }</span>
+           <div class=clearfix></div>
+          </div>
+         </div>
+        </div>
+        <div class="panel panel-success" id=jump-Auth-ForgotPassword>
+         <div class=panel-heading><small class="pull-right text-muted">raw</small>
+          <a class=text-success data-toggle=collapse data-parent=#accordion-Auth href=#collapse-Auth-ForgotPassword>
+           <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Forgot Password</strong>
+            &nbsp;|&nbsp;
+            <strong class="request-method border-success">POST</strong>
+            &nbsp;
+            https://e-commerce-api-p1.herokuapp.com/api/v1/auth/forgot-password
+           </h4>
+          </a>
+         </div>
+         <div id=collapse-Auth-ForgotPassword class="panel-collapse collapse">
+          <div class=panel-body>
+           <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+            &#34;email&#34;:&#34;tosin3@gmail.com&#34;
+            }</span>
+           <div class=clearfix></div>
+          </div>
+         </div>
+        </div>
+        <div class="panel panel-success" id=jump-Auth-ResetPassword>
+         <div class=panel-heading><small class="pull-right text-muted">raw</small>
+          <a class=text-success data-toggle=collapse data-parent=#accordion-Auth href=#collapse-Auth-ResetPassword>
+           <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Reset Password</strong>
+            &nbsp;|&nbsp;
+            <strong class="request-method border-success">POST</strong>
+            &nbsp;
+            https://e-commerce-api-p1.herokuapp.com/api/v1/auth/reset-password
+           </h4>
+          </a>
+         </div>
+         <div id=collapse-Auth-ResetPassword class="panel-collapse collapse">
+          <div class=panel-body>
+           <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+            &#34;email&#34;:&#34;tosin3@gmail.com&#34;,
+            &#34;passwordToken&#34;:&#34;c408dfd728a22c99a5668e394db93d54e6ca8e609173dfb77a35fdc58c4bb4274596601ad32b6c57dff2ed2fc33d28f00634e5c0fabc441c5cb4c1fc65c651c47386844b475f&#34;,
             &#34;password&#34;:&#34;learning&#34;
             }</span>
            <div class=clearfix></div>
@@ -8625,17 +8691,20 @@
       <div class=request-item>
        <div class=panel-group id=accordion-Product>
         <div class="panel panel-info" id=jump-Product-GetAllProducts>
-         <div class=panel-heading><small class="pull-right text-muted"></small><a class=text-info data-toggle=collapse
-           data-parent=#accordion-Product href=#collapse-Product-GetAllProducts>
+         <div class=panel-heading><small class="pull-right text-muted">formdata</small>
+          <a class=text-info data-toggle=collapse data-parent=#accordion-Product href=#collapse-Product-GetAllProducts>
            <h4 class=panel-title><span class="glyphicon glyphicon-plus"></span><strong>Get All Products</strong>
             &nbsp;|&nbsp;
             <strong class="request-method border-info">GET</strong>
             &nbsp;
             https://e-commerce-api-p1.herokuapp.com/api/v1/products
            </h4>
-          </a></div>
+          </a>
+         </div>
          <div id=collapse-Product-GetAllProducts class="panel-collapse collapse">
-          <div class=panel-body></div>
+          <div class=panel-body>
+           <h5 class="label label-primary">Body</h5>
+          </div>
          </div>
         </div>
         <div class="panel panel-success" id=jump-Product-CreateProduct>
@@ -8653,8 +8722,9 @@
          <div id=collapse-Product-CreateProduct class="panel-collapse collapse">
           <div class=panel-body>
            <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
-            &#34;name&#34;: &#34;product-2&#34;,
-            &#34;price&#34;: 55999,
+            &#34;name&#34;: &#34;accent chair&#34;,
+            &#34;price&#34;: 25999,
+            &#34;image&#34;: &#34;/uploads/computer-3.jpeg&#34;,
             &#34;colors&#34;: [&#34;#ff0000&#34;, &#34;#00ff00&#34;, &#34;#0000ff&#34;],
             &#34;company&#34;: &#34;marcos&#34;,
             &#34;description&#34;: &#34;Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy
@@ -8904,13 +8974,21 @@
            <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
             &#34;tax&#34;: 499,
             &#34;shippingFee&#34;: 799,
-            &#34;items&#34;: [
+            &#34;cartItems&#34;: [
+            {
+            &#34;name&#34;: &#34;bed&#34;,
+            &#34;price&#34;: 2699,
+            &#34;image&#34;:
+            &#34;https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160&#34;,
+            &#34;quantity&#34;: 3,
+            &#34;product&#34;: &#34;62f0ed78a2ee35aa927cee94&#34;
+            },
             {
             &#34;name&#34;: &#34;chair&#34;,
             &#34;price&#34;: 2999,
             &#34;image&#34;:
             &#34;https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160&#34;,
-            &#34;quantity&#34;: 3,
+            &#34;quantity&#34;: 2,
             &#34;product&#34;: &#34;62f0ed63a2ee35aa927cee91&#34;
             }
             ]
@@ -8940,7 +9018,7 @@
             &nbsp;|&nbsp;
             <strong class="request-method border-warning">PATCH</strong>
             &nbsp;
-            https://e-commerce-api-p1.herokuapp.com/api/v1/orders/62f47a2474053ee15e6a2563
+            https://e-commerce-api-p1.herokuapp.com/api/v1/orders/631aff635873b86030ec85d5
            </h4>
           </a>
          </div>
@@ -8980,7 +9058,7 @@
   <div class=container-fluid>
    <div class="span12 text-center"><span data-toggle=tooltip
      title="If the application help you, please feel free to give a star to the project in github. Your star inspire me to work more on open-source projects like this!">Generated
-     at 2022-08-16 01:39:22 by <a href=https://github.com/thedevsaddam/docgen target=_blank
+     at 2022-09-15 23:40:42 by <a href=https://github.com/thedevsaddam/docgen target=_blank
       class=text-muted>docgen</a></span></div>
   </div>
  </footer>
