@@ -162,7 +162,7 @@ const resetPassword = async (req, res) => {
       user.password = password;
       await user.save();
     } else {
-      throw new CustomError.UnauthenticatedError('Invalid Credentials');
+      throw new CustomError.UnauthenticatedError('Password reset failed');
     }
   }
   res.status(StatusCodes.OK).json({ msg: 'Password reset successful!' });
