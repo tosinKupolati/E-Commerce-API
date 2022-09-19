@@ -6,6 +6,7 @@ const {
   attachCookiesToResponse,
   checkPermissions,
 } = require('../utils');
+const Token = require('../models/Token');
 
 const getAllUsers = async (req, res) => {
   const users = await User.find({ role: 'user' }).select('-password');
@@ -37,7 +38,13 @@ const updateUser = async (req, res) => {
 
   await user.save();
   const tokenUser = createTokenUser(user);
-  attachCookiesToResponse({ res, user: tokenUser });
+  //find token
+  const token = await Token.findOne({ user: req.user.userId });
+  attachCookiesToResponse({
+    res,
+    user: tokenUser,
+    refreshToken: token.refreshToken,
+  });
   res.status(StatusCodes.OK).json({ user: tokenUser });
 };
 
@@ -63,19 +70,3 @@ module.exports = {
   updateUser,
   updateUserPassword,
 };
-
-//update user with findOneAndUpdate
-// const updateUser = async (req, res) => {
-//   const { name, email } = req.body;
-//   if (!name || !email) {
-//     throw new CustomError.BadRequestError('Please provide all values');
-//   }
-//   const user = await User.findOneAndUpdate(
-//     { _id: req.user.userId },
-//     { name, email },
-//     { new: true, runValidators: true }
-//   );
-//   const tokenUser = createTokenUser(user);
-//   attachCookiesToResponse({ res, user: tokenUser });
-//   res.status(StatusCodes.OK).json({ user: tokenUser });
-// };
