@@ -1,7 +1,5 @@
 # E-Commerce API
 
-> E-Commerce API
-
 ## Table of Contents
 
 - [Features](#features)
