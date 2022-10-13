@@ -1,7 +1,6 @@
 # E-Commerce API
 
 > E-Commerce API
-> Live demo [_here_](https://e-commerce-api-p1.herokuapp.com/).
 
 ## Table of Contents
 
