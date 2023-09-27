@@ -1,12 +1,5 @@
 # E-Commerce API
 
-## Table of Contents
-
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Setup](#setup)
-- [Usage](#usage)
-
 ## Features
 
 - Users can register and login to their accounts.
